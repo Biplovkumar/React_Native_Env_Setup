@@ -1,4 +1,4 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli). And I have Installed (https://github.com/luggit/react-native-config). Created with multiple environment in one application.
 
 # Getting Started
 
@@ -61,8 +61,32 @@ You've successfully run and modified your React Native App. :partying_face:
 
 ### Now what?
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+1. Install react-native-config from https://github.com/luggit/react-native-config
+2. Add apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle" in 2 nd line of android/app/build.gradle
+3. Create .env & .env.prod file in root folder
+4. Declare variable in ".env & .env.prod"
+
+API_URL=https://myapi.com
+
+5. Get that variable in App.tsx with 
+
+import Config from 'react-native-config';
+console.log(Config.API_URL);
+
+
+6. Add script in Package.json file.
+
+    "start": "react-native start -- --reset-cache",
+    "android": "npx react-native run-android",
+    "qa": "cp ./.env.qa ./.env",
+    "dev": "cp ./.env.dev ./.env",
+
+
+4. run yarn qa
+8. yarn start
+9. yarn android    
+
+Good to go.
 
 # Troubleshooting
 
